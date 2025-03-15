@@ -4,7 +4,7 @@
     margin: 0;
 }
 nav{
-    background-color: #FAF8F6;
+    background: linear-gradient(to bottom, #F2F0EF, #E3E3E3);
     height: 50px;
     top: 0;
     display: flex;

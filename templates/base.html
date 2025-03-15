@@ -13,7 +13,11 @@
         <div class="nav-title"><h1>Myproject</h1></div>
         <div class="nav-right">
             <img src="https://static-00.iconduck.com/assets.00/notification-icon-1845x2048-k24ddt5c.png" alt="notifications">
-            <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="login">
+            {% if user %}
+            <a href="/logout"><img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt="login"></a>
+            {% else %}
+            <a href="/login"><button>Login</button></a>
+            {% endif %}
         </div>
     </nav>
     {% block content %} {% endblock %}
