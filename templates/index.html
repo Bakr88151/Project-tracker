@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Myproject{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="your-projects-section">
+    <h2 class="your-projects">Your Projects:</h2>
+    <div class="your-projects-section-buttons">
+        <button class="your-projects-section-button">New Project</button>
+        <button class="your-projects-section-button">Join Project</button>
+    </div>
+</section>
+<section class="Projects-list">
+    {% for project in projects %}
+        <div class="project-card">
+            <h3>{{ project.title }}</h3>
+            <span class="card-date">{{ project.date }}</span>
+            <span class="card-creator">{{ project.creator }}</span>
+            <span class="card-description">{{ project.description }}</span>
+        </div>
+    {% endfor %}
+</section>
+{% endblock %}
