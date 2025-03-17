@@ -6,21 +6,36 @@
 {% endblock %}
 
 {% block content %}
-<section class="your-projects-section">
-    <h2 class="your-projects">Your Projects:</h2>
-    <div class="your-projects-section-buttons">
-        <button class="your-projects-section-button">New Project</button>
-        <button class="your-projects-section-button">Join Project</button>
-    </div>
-</section>
-<section class="Projects-list">
-    {% for project in projects %}
-        <div class="project-card">
-            <h3>{{ project.title }}</h3>
-            <span class="card-date">{{ project.date }}</span>
-            <span class="card-creator">{{ project.creator }}</span>
-            <span class="card-description">{{ project.description }}</span>
-        </div>
-    {% endfor %}
-</section>
+    {% if not user %}
+        <section class="not-loged-section">
+            <h2 class="you-not-loged">you are not loged-in!</h2>
+            <a href="/login"><button class="not-loged-button">login</button></a>
+        </section>
+    {% elif not projects %}
+        <section class="no-projects-section">
+            <h2 class="no-projects">You have no Projects !</h2>
+            <div class="no-projects-buttons">
+                <button class="no-projects-section-button">New Project</button>
+                <button class="no-projects-section-button">Join Project</button>
+            </div>
+        </section>
+    {% else %}
+            <section class="your-projects-section">
+                <h2 class="your-projects">Your Projects:</h2>
+                <div class="your-projects-section-buttons">
+                    <button class="your-projects-section-button">New Project</button>
+                    <button class="your-projects-section-button">Join Project</button>
+                </div>
+            </section>
+            <section class="Projects-list">
+            {% for project in projects %}
+                <div class="project-card">
+                    <h3>{{ project.title }}</h3>
+                    <span class="card-date">{{ project.date }}</span>
+                    <span class="card-creator">{{ project.creator }}</span>
+                    <span class="card-description">{{ project.description }}</span>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
 {% endblock %}

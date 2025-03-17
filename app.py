@@ -19,6 +19,8 @@ projects = [{
     'creator': 'You'
 }] * 10
 
+projects = []
+
 @app.route('/')
 def home():
     if 'user_id' in session:
@@ -54,8 +56,6 @@ def login():
             return jsonify({'message': 'loged in succefully'}), 200  # Flask automatically uses GET method for redirects
         else:
             return jsonify({'error': 'Invalid email or password'}), 401
-
-
 
 @app.route('/createaccount', methods=['POST'])
 def create_account():
